@@ -4572,6 +4572,11 @@ public class InCallScreen extends Activity
      */
     private void updateExpandedViewState() {
         if (mIsForegroundActivity) {
+
+	    // PL: This is nice in theory, but in the end, we still do have false touch with
+	    // Proximity on Xperia S
+	    // FIXME: change comments to be an option in xml config
+	    /*
             if (mApp.proximitySensorModeEnabled()) {
                 // We should not enable notification's expanded view on RINGING state.
                 mApp.notificationMgr.statusBarHelper.enableExpandedView(
@@ -4579,8 +4584,11 @@ public class InCallScreen extends Activity
             } else {
                 // If proximity sensor is unavailable on the device, disable it to avoid false
                 // touches toward notifications.
+	    */
                 mApp.notificationMgr.statusBarHelper.enableExpandedView(false);
+	    /*
             }
+	    */
         } else {
             mApp.notificationMgr.statusBarHelper.enableExpandedView(true);
         }
